@@ -1,23 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import Content from './components/content';
+import pokePlace from './coords';
+//import { getStorage, ref } from 'firebase/storage';
 
-function App() {
+//const storage = getStorage();
+//const gsRef = ref(storage, 'gs://character-search-be1bd.appspot.com/pokemon-coords.json');
+//const obRef = JSON.parse(gsRef);
+
+function App(props) {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Content coords={pokePlace} />
     </div>
   );
 }

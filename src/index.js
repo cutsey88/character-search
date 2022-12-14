@@ -1,17 +1,47 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { firestore } from './firebase/firebaseConfig';
+import { doc, getDoc, getDocs } from "firebase/firestore"; 
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { async } from '@firebase/util';
+
+// Initialize Firebase
+
+/*async function getFireObject() {
+  const coordsRef = doc(firestore, 'character-coords', 'pokemon-coords');
+  const docSnap = await getDoc(coordsRef);
+  const fobRef = docSnap.data();
+  return fobRef;
+}
+
+
+const obRef = getFireObject();
+console.log(obRef);
+*/
+
+
+async function getFireObject() {
+  const docRef = doc(firestore, "character-coords", "pokemon-coords");
+  const docSnap = await getDoc(docRef);
+
+  if (docSnap.exists()) {
+    console.log("Document data:", docSnap.data());
+  } else {
+    // doc.data() will be undefined in this case
+    console.log("No such document!");
+  }
+}
+
+getFireObject();
+
+let obRef;
+
+//const obRef = JSON.parse(gsRef);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <App obRef={obRef} />
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
