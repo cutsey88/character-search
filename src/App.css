@@ -1,5 +1,5 @@
 .App {
-
+  background-color: #dc0a2d;
 }
 
 .content {
@@ -8,10 +8,6 @@
 
 .search-image {
   width: 100%;
-}
-
-area:hover {
-  cursor: pointer;
 }
 
 .select-box {
@@ -29,4 +25,13 @@ area:hover {
   border: solid 1px black;
   border-radius: 6px;
   padding: 0.1rem;
+}
+
+.choice:hover {
+  cursor: pointer;
+}
+
+.footer {
+  text-align: center;
+  padding: 10px 0;
 }

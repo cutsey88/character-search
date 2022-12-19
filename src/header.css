@@ -1,0 +1,40 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titleImage {
+    width: 700px;
+}
+
+.searchTargets {
+    display: flex;
+    gap: 30px;
+    padding: 10px 0;
+}
+
+.targetImageBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 200px;
+    padding: 10px;
+}
+
+.targetImage {
+    width: 90%;
+}
+
+.targetName {
+    font-size: 1.6rem;
+    color: #ffcd00;
+    -webkit-text-stroke: 1px #356abc;
+    text-stroke: 1px #356abc;
+}
+
+.found {
+
+}

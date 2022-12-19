@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { firestore } from '../firebase/firebaseConfig';
+import { doc, getDoc } from "firebase/firestore";
 import SearchImage from './searchImage';
 import SelectBox from './selectBox';
 import pokemonImage from '../images/pokemon.jpg';
@@ -8,8 +10,6 @@ function Content(props) {
     const [selecting, setSelecting] = useState(false);
     const [clickPosition, setClickPosition] = useState(null);
     const [imageSize, setImageSize] = useState(null);
-    //const [] = useState();
-
 
     function imageClick(e) {
         if (selecting) {
@@ -44,15 +44,24 @@ function Content(props) {
 
     }
 
-    function selectionClick(e) {
+    async function selectionClick(e) {
         let targetName = e.target.textContent;
-        //let pokeInfo = props.coords[targetName];
-        let pokeInfo = {
-            coords: [1541, 1253],
-            rad: 90,
-        };
+      
+        //Get info from firebase
+        const docRef = doc(firestore, "character-coords", "pokemon-coords");
+        const docSnap = await getDoc(docRef);
+        let coords = docSnap.data();
+
+        if (docSnap.exists()) {
+            console.log("Document data:", coords);
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+        let pokeInfo = coords[targetName];
         console.log(clickPosition);
-        console.log(props.coords);
+        console.log(coords);
+        console.log(coords[targetName]);
         let hypotenuse = getHypotenuse(pokeInfo.coords, clickPosition);
         let hit = hypotenuse <= Math.round(pokeInfo.rad * (imageSize[0] / 1831)) ? true : false;
         if (hit) {

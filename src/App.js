@@ -1,16 +1,14 @@
 import './App.css';
+import Header from './components/header';
 import Content from './components/content';
-import pokePlace from './coords';
-//import { getStorage, ref } from 'firebase/storage';
+import Footer from './components/footer';
 
-//const storage = getStorage();
-//const gsRef = ref(storage, 'gs://character-search-be1bd.appspot.com/pokemon-coords.json');
-//const obRef = JSON.parse(gsRef);
-
-function App(props) {
+function App() {
   return (
     <div className="App">
-      <Content coords={pokePlace} />
+      <Header />
+      <Content />
+      <Footer />
     </div>
   );
 }
