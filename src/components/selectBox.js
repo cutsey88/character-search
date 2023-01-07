@@ -1,15 +1,16 @@
 function SelectBox(props) {
+
+    let pokeNames = ['Poliwhirl', 'Drowzee', 'Mankey'];
     return (
         <div className="select-box" style={{left: props.left, top: props.top}} >
-            <div className="choice" onClick={props.handleClick}>
-                <p>Poliwhirl</p>
-            </div>
-            <div className="choice" onClick={props.handleClick}>
-                <p>Drowzee</p>
-            </div>
-            <div className="choice" onClick={props.handleClick}>
-                <p>Mankey</p>
-            </div>
+            {pokeNames.map((pokemon) => {
+                if (!props.foundPokemon.includes(pokemon)) {
+                    return (<div className="choice" onClick={props.handleClick}>
+                                <p>{pokemon}</p>
+                            </div>)
+                }
+                return null;
+            })}
         </div>
     )
 }

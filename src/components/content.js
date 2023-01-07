@@ -30,6 +30,7 @@ function Content(props) {
                         left={`${clickPosition[0]}px`}
                         top={`${clickPosition[1]}px`}
                         handleClick={selectionClick}
+                        foundPokemon={props.foundPokemon}
                     />
                 );
             }
@@ -66,9 +67,11 @@ function Content(props) {
         let hit = hypotenuse <= Math.round(pokeInfo.rad * (imageSize[0] / 1831)) ? true : false;
         if (hit) {
             console.log(`hit ${targetName}`);
+            props.markFound(targetName);
         } else {
             console.log(`missed ${targetName}`)
         }
+        setSelecting(false);
     }
 
     return (
