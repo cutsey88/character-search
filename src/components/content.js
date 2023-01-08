@@ -3,10 +3,12 @@ import { firestore } from '../firebase/firebaseConfig';
 import { doc, getDoc } from "firebase/firestore";
 import SearchImage from './searchImage';
 import SelectBox from './selectBox';
+import HitNotice from './hitNotice';
 import pokemonImage from '../images/pokemon.jpg';
 
 function Content(props) {
     const [selectBoxDisplay, setSelectBoxDisplay] = useState(null);
+    const [hitNotice, setHitNotice] = useState(null);
     const [selecting, setSelecting] = useState(false);
     const [clickPosition, setClickPosition] = useState(null);
     const [imageSize, setImageSize] = useState(null);
@@ -27,15 +29,27 @@ function Content(props) {
             if (selecting) {
                 return (
                     <SelectBox
-                        left={`${clickPosition[0]}px`}
-                        top={`${clickPosition[1]}px`}
+                        left={clickPosition[0]}
+                        top={clickPosition[1]}
                         handleClick={selectionClick}
                         foundPokemon={props.foundPokemon}
+                        imageSize={imageSize}
                     />
                 );
             }
             return null;
         })
+    }, [selecting])
+
+    useEffect(() => {
+        if (!selecting) {
+            const interval = setInterval(() => {
+                setHitNotice(null)
+            }, 1900);
+            return () => {
+                clearInterval(interval);
+            }
+        }
     }, [selecting])
 
     function getHypotenuse(midPoint, clickPoint) {
@@ -71,6 +85,15 @@ function Content(props) {
         } else {
             console.log(`missed ${targetName}`)
         }
+        setHitNotice(
+            <HitNotice
+                targetName={targetName}
+                hit={hit}
+                imageSize={imageSize}
+                left={clickPosition[0]}
+                top={clickPosition[1]}
+            />
+        )
         setSelecting(false);
     }
 
@@ -82,6 +105,7 @@ function Content(props) {
                 handleClick={imageClick}
             />
             {selectBoxDisplay}
+            {hitNotice}
         </div>
     )
 }
