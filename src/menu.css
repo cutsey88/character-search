@@ -16,11 +16,12 @@
     gap: 1rem;
     padding: 1rem;
     border-radius: 6px;
-    width: 60%;
+    max-width: 60%;
+    min-width: 40%;
     color: #ffcd00;
     background-color: #dc0a2d;
-    border: solid 4px #ffcd00;
-    outline: solid 3px #356abc;
+    border: solid 8px #ffcd00;
+    outline: solid 7px #356abc;
 }
 
 .menu-title-image {
@@ -34,17 +35,60 @@
     gap: 1rem;
 }
 
+.menu-header {
+    font-size: 2rem;
+}
+
 .menu-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
     font-size: 1.4rem;
 }
 
-.start-button {
-    min-width: 30%;
+.top-scores {
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+.rank-row,
+.update-name {
+    display: flex;
+    gap: 1rem;
+}
+
+#name-input {
+    border-color: #356abc;
+    border-radius: 3px;
+    height: 2rem;
+    width: 4rem;
+    font-size: 1.6rem;
+    padding: 0.2rem;
+}
+
+.submit-name,
+.menu-button {
     padding: 0.2rem;
     border: solid 2px #356abc;
-    border-radius: 6px;
-    font-size: 1.6rem;
+    border-radius: 6px; 
     color: #ffcd00;
     -webkit-text-stroke: 1px #356abc;
     text-stroke: 1px #356abc;
+}
+
+.menu-button {
+    min-width: 30%;
+    font-size: 1.6rem;
+}
+
+.submit-name {
+    font-size: 1.2rem;
+}
+
+@media  (max-width: 480px) {
+
+    .menu {
+        max-width: 90%;
+    }
+
 }

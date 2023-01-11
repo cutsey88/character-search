@@ -11,7 +11,7 @@ function StartMenu(props) {
                 Find the target pokemon as fast as you can to make it to the leaderboard.
             </p>
             <button
-                className="start-button"
+                className="menu-button"
                 onClick={startGame}
             >
                 Start

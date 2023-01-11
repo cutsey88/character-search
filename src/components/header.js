@@ -3,14 +3,10 @@ import titleImage from '../images/title-image.png';
 import poliwhirlImage from '../images/poliwhirl-image.png';
 import drowzeeImage from '../images/drowzee-image.png';
 import mankeyImage from '../images/mankey-image.png';
+import formatTime from '../timerFormatter';
 
 function Header(props) {
-    let hours = Math.floor(props.timer / 3600);
-    let minutes = Math.floor((props.timer - (hours * 3600)) / 60);
-    let seconds = props.timer - (hours * 3600) - (minutes * 60);
-    let hourFiller = hours >= 10 ? null : 0;
-    let minuteFiller = minutes >= 10 ? null : 0;
-    let secondFiller = seconds >= 10 ? null : 0;
+    let time = formatTime(props.timer);
 
     return (
         <div className="header">
@@ -46,7 +42,7 @@ function Header(props) {
                 </div>
             </div>
             <div className="timer-box">
-                <p className="timer">{hourFiller}{hours} : {minuteFiller}{minutes} : {secondFiller}{seconds}</p>
+                <p className="timer">{time.hourFiller}{time.hours} : {time.minuteFiller}{time.minutes} : {time.secondFiller}{time.seconds}</p>
             </div>
             <div className="timer-buffer"></div>
         </div>

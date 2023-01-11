@@ -63,3 +63,26 @@
     border-left: none;
     border-right: none;
 }
+
+@media  (max-width: 480px) {
+
+    .header {
+
+    }
+
+    .title-image {
+        max-width: 90%;
+        padding-top: 1rem;
+    }
+
+    .search-targets {
+        width: 100%;
+    padding: 10px;
+        justify-content: center;
+    }
+
+    .target-imagebox {
+        width: 30%;
+    }
+
+}

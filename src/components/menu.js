@@ -7,7 +7,14 @@ import ReplayMenu from './replayMenu';
 function Menu(props) {
     let subMenu = props.firstPlay === true ?
         <StartMenu setFirstPlay={props.setFirstPlay} setMenuOpen={props.setMenuOpen} /> :
-        <ReplayMenu setMenuOpen={props.setMenuOpen} setFoundPokemon={props.setFoundPokemon} />;
+        <ReplayMenu
+            setMenuOpen={props.setMenuOpen}
+            setFoundPokemon={props.setFoundPokemon}
+            scorePlace={props.scorePlace}
+            newRanks={props.newRanks}
+            score={props.score}
+            setScore={props.setScore}
+        />;
     return (
         <div className="menu-overlay">
             <div className="menu">

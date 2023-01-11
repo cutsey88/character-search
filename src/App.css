@@ -48,11 +48,7 @@
   align-items: center;
   gap: 0.2rem;
   padding: 0.4rem;
-  animation: fadeIn 2s linear;
-}
-
-.hit-notice.miss {
-
+  animation: fadeIn 3s cubic-bezier(.02,.53,1,.56);
 }
 
 .hit-notice.hit {
@@ -67,4 +63,35 @@
 @keyframes fadeIn {
   0%,100% { opacity: 0 }
   50% { opacity: 1 }
+}
+
+@media  (max-width: 480px) {
+
+  .App {
+    height: 100vh;
+  }
+
+  .content {
+
+  }
+
+  .search-image {
+
+  }
+
+  .select-box {
+    font-size: 0.9rem;
+    padding: 0.2rem;
+  }
+
+  .choice {
+    border: solid 1px #ffcd00;
+    padding: 0.1rem 0.2rem;
+  }
+
+  .hit-notice {
+    font-size: 0.9rem;
+    padding: 0.2rem;
+  }
+
 }

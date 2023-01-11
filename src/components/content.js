@@ -45,7 +45,7 @@ function Content(props) {
         if (!selecting) {
             const interval = setInterval(() => {
                 setHitNotice(null)
-            }, 1900);
+            }, 2800);
             return () => {
                 clearInterval(interval);
             }
@@ -67,23 +67,11 @@ function Content(props) {
         const docSnap = await getDoc(docRef);
         let coords = docSnap.data();
 
-        if (docSnap.exists()) {
-            console.log("Document data:", coords);
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-        }
         let pokeInfo = coords[targetName];
-        console.log(clickPosition);
-        console.log(coords);
-        console.log(coords[targetName]);
         let hypotenuse = getHypotenuse(pokeInfo.coords, clickPosition);
         let hit = hypotenuse <= Math.round(pokeInfo.rad * (imageSize[0] / 1831)) ? true : false;
         if (hit) {
-            console.log(`hit ${targetName}`);
             props.markFound(targetName);
-        } else {
-            console.log(`missed ${targetName}`)
         }
         setHitNotice(
             <HitNotice
