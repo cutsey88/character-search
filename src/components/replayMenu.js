@@ -9,7 +9,7 @@ function ReplayMenu(props) {
     const [newName, setNewName] = useState(null);
 
     async function submitName() {
-        let name = document.getElementById('name-input').value;
+        let name = document.getElementById('name-input').value.toUpperCase();
         const rankingRef = doc(firestore, "scores", "top-ten");
         await updateDoc(rankingRef, {
             [`r${props.scorePlace}`]: {
@@ -59,7 +59,11 @@ function ReplayMenu(props) {
                             <div key={ind} className="rank-row">
                                 <p className="rank-number">#{ind + 1}:</p>
                                 <div className="update-name">
-                                    <input type="text" id="name-input" />
+                                    <input
+                                        type="text"
+                                        id="name-input"
+                                        maxlength="3"
+                                    />
                                     <p className="rank-score">{time.hourFiller}{time.hours} : {time.minuteFiller}{time.minutes} : {time.secondFiller}{time.seconds}</p>
                                     <button className="submit-name" onClick={submitName}>Submit Name</button>
                                 </div>

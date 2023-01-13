@@ -64,6 +64,7 @@
     width: 4rem;
     font-size: 1.6rem;
     padding: 0.2rem;
+    text-transform: uppercase;
 }
 
 .submit-name,
