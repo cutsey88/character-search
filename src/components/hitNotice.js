@@ -16,14 +16,12 @@ function HitNotice(props) {
         return (
             <div className="hit-notice hit" style={position} >
                 <p>HIT</p>
-                <p>{props.targetName.toUpperCase()}</p>
             </div>
         )
     }
     return (
         <div className="hit-notice miss" style={position} >
-            <p>MISSED</p>
-            <p>{props.targetName.toUpperCase()}</p>
+            <p>MISS</p>
         </div>
     )
     

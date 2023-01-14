@@ -11,7 +11,7 @@ function Menu(props) {
             setMenuOpen={props.setMenuOpen}
             setFoundPokemon={props.setFoundPokemon}
             scorePlace={props.scorePlace}
-            newRanks={props.newRanks}
+            ranks={props.ranks}
             score={props.score}
             setScore={props.setScore}
         />;

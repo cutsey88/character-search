@@ -14,7 +14,7 @@
 
 .search-image {
   width: 100%;
-  cursor: url(../src/images/focus.png), auto;
+  cursor: url(../src/images/focus.png) 16 16, auto;
 }
 
 .select-box {
@@ -49,7 +49,8 @@
   align-items: center;
   gap: 0.2rem;
   padding: 0.4rem;
-  animation: fadeIn 3s cubic-bezier(.02,.53,1,.56);
+  opacity: 0;
+  animation: fadeIn 3s cubic-bezier(0, 0, 0.58, 1);
 }
 
 .hit-notice.hit {
@@ -63,7 +64,7 @@
 
 @keyframes fadeIn {
   0%,100% { opacity: 0 }
-  50% { opacity: 1 }
+  10% { opacity: 1 }
 }
 
 @media  (max-width: 480px) {

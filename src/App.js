@@ -22,7 +22,7 @@ function App() {
   const [timerValue, setTimerValue] = useState(0);
   const [score, setScore] = useState(null);
   const [scorePlace, setScorePlace] = useState(null);
-  const [newRanks, setNewRanks] = useState(null);
+  const [ranks, setRanks] = useState(null);
 
   function markFound(name) {
     setFoundPokemon(prevFound => {
@@ -84,10 +84,10 @@ function App() {
       }
       
       setScorePlace(myRank);
-      setNewRanks(topScores);
       //Write new ranks to firestore
       await setDoc(doc(firestore, "scores", "top-ten"), topScores);
     }
+    setRanks(topScores);
     setMenuOpen(true);
   }
 
@@ -112,7 +112,7 @@ function App() {
           setMenuOpen={setMenuOpen}
           setFoundPokemon={setFoundPokemon}
           scorePlace={scorePlace}
-          newRanks={newRanks}
+          ranks={ranks}
           score={score}
           setScore={setScore}
         />

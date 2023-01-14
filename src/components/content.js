@@ -60,6 +60,7 @@ function Content(props) {
     }
 
     async function selectionClick(e) {
+        setHitNotice(null);
         let targetName = e.target.textContent;
       
         //Get info from firebase
@@ -75,7 +76,6 @@ function Content(props) {
         }
         setHitNotice(
             <HitNotice
-                targetName={targetName}
                 hit={hit}
                 imageSize={imageSize}
                 left={clickPosition[0]}
@@ -97,7 +97,5 @@ function Content(props) {
         </div>
     )
 }
-
-// check x,y (e) => { console.log([e.nativeEvent.offsetX, e.nativeEvent.offsetY]) }
 
 export default Content;

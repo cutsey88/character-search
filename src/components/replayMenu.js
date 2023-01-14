@@ -35,7 +35,7 @@ function ReplayMenu(props) {
         return result;
     }
 
-    let rankArray = convertRanks(props.newRanks);
+    let rankArray = convertRanks(props.ranks);
 
     return (
         <div className="sub-menu">
