@@ -14,6 +14,7 @@
 
 .search-image {
   width: 100%;
+  cursor: url(../src/images/focus.png), auto;
 }
 
 .select-box {
